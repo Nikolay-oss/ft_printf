@@ -6,12 +6,11 @@
 /*   By: dkenchur <dkenchur@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/13 15:45:32 by dkenchur          #+#    #+#             */
-/*   Updated: 2020/11/13 18:10:09 by dkenchur         ###   ########.fr       */
+/*   Updated: 2020/11/16 17:31:37 by dkenchur         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_parser.h"
-#include "libft.h"
 
 int		ismodifer(const char *modifers, char c)
 {
@@ -29,32 +28,43 @@ int		isflags(const char *flags, char c)
 	
 }
 
-void	follow_line(char *current)
+char	*follow_line(char *current, va_list ap)
 {
 	const char	*modifers;
 	const char	*flags;
+	t_specifier	*spec;
 
 	modifers = "cspdiuxX";
-	flags = "-0.*";
-	if (ismodifer(modifers, *(++current)))
+	flags = "-0*.";
+	if (!(spec = (t_specifier*)malloc(sizeof(t_specifier))))
+		return (NULL);
+	if (!(ft_init_specifer(&spec)))
+		return (NULL);
+	if (ismodifer(modifers, *current))
 	{
-		// ft_modes()
-		return ;
+		ft_modes(&spec, ap, *current);
+		return (++current);
 	}
 	if (isflags(flags, current))
 	{
 		// ft_flags()
 	}
+	// free enum and spec
 }
 
 void	ft_parser(const char *format, va_list ap)
 {
-	char			*percent;
+	char	*percent;
+	char	*current;
 
 	if (!(percent = ft_strchr(format, '%')))
 	{
 		ft_putstr(format);
 		return ;
 	}
-	// while ...
+	current = ++percent;
+	while (*current)
+	{
+		
+	}
 }

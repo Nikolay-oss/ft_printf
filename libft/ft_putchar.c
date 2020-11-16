@@ -1,22 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_parser.h                                        :+:      :+:    :+:   */
+/*   ft_putchar.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dkenchur <dkenchur@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/11/13 15:35:30 by dkenchur          #+#    #+#             */
-/*   Updated: 2020/11/16 16:59:37 by dkenchur         ###   ########.fr       */
+/*   Created: 2020/11/16 20:23:51 by dkenchur          #+#    #+#             */
+/*   Updated: 2020/11/16 20:24:21 by dkenchur         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FT_PARSER_H
-# define FT_PARSER_H
-# include <stdlib.h>
-# include <stdarg.h>
-# include "libft.h"
-# include "ft_handlers.h"
+#include "libft.h"
 
-void	ft_parser(const char *format, va_list ap);
-int		ft_init_specifer(t_specifier **spec);
-#endif
+void	ft_putchar(char c)
+{
+	write(1, &c, 1);
+}
