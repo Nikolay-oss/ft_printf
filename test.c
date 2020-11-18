@@ -28,6 +28,7 @@ int		main()
 	printf("|%14.14s|\n", s);
 	printf("%13.12s\n", s);
 	printf("|%-.15s|\n", s);
+	printf("%zzz%d\n", 5);
 	//printf("%13.-1s\n", s);
 }
 

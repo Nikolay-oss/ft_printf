@@ -6,7 +6,7 @@
 /*   By: dkenchur <dkenchur@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/13 15:45:32 by dkenchur          #+#    #+#             */
-/*   Updated: 2020/11/16 17:31:37 by dkenchur         ###   ########.fr       */
+/*   Updated: 2020/11/18 19:56:20 by dkenchur         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,6 +65,8 @@ void	ft_parser(const char *format, va_list ap)
 	current = ++percent;
 	while (*current)
 	{
-		
+		current = follow_line(current, ap);
+		if (*current)
+			current++;
 	}
 }
