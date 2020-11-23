@@ -1,24 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printf.c                                        :+:      :+:    :+:   */
+/*   ft_init_specifier.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dkenchur <dkenchur@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/11/13 13:35:57 by dkenchur          #+#    #+#             */
-/*   Updated: 2020/11/23 17:08:05 by dkenchur         ###   ########.fr       */
+/*   Created: 2020/11/23 13:00:05 by dkenchur          #+#    #+#             */
+/*   Updated: 2020/11/23 16:02:40 by dkenchur         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
 #include "ft_parser.h"
 
-int		ft_printf(const char *format, ...)
+void	ft_init_specifer(t_specifier *spec)
 {
-	va_list		ap;
-
-	va_start(ap, format);
-	ft_parser(format, ap);
-	va_end(ap);
-	return (0);
+	spec->enumerate.c = 0;
+	spec->enumerate.d = 0;
+	spec->enumerate.i = 0;
+	spec->enumerate.minus = 0;
+	spec->enumerate.p = 0;
+	spec->enumerate.point = 0;
+	spec->enumerate.s = 0;
+	spec->enumerate.star = 0;
+	spec->enumerate.u = 0;
+	spec->enumerate.x = 0;
+	spec->enumerate.x_x = 0;
+	spec->enumerate.zero = 0;
+	spec->width = -1;
+	spec->precision = -1;
+	spec->value = NULL;
 }

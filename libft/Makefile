@@ -6,7 +6,7 @@
 #    By: dkenchur <dkenchur@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/11/04 06:46:45 by dkenchur          #+#    #+#              #
-#    Updated: 2020/11/16 20:25:11 by dkenchur         ###   ########.fr        #
+#    Updated: 2020/11/23 13:02:05 by dkenchur         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -72,7 +72,6 @@ OBJS		= $(SRCS:.c=.o)
 
 $(NAME):	$(OBJS)
 			ar rc $(NAME) $(OBJS)
-			ranlib $(NAME)
 
 all:		$(NAME)
 

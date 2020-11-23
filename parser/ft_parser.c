@@ -6,14 +6,18 @@
 /*   By: dkenchur <dkenchur@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/13 15:45:32 by dkenchur          #+#    #+#             */
-/*   Updated: 2020/11/18 19:56:20 by dkenchur         ###   ########.fr       */
+/*   Updated: 2020/11/23 17:39:12 by dkenchur         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_parser.h"
+#include <stdio.h>
 
-int		ismodifer(const char *modifers, char c)
+int		ismodifer(char c)
 {
+	const char	*modifers;
+
+	modifers = "cspdiuxX";
 	while (*modifers)
 	{
 		if (c == *modifers)
@@ -23,49 +27,52 @@ int		ismodifer(const char *modifers, char c)
 	return (0);
 }
 
-int		isflags(const char *flags, char c)
+int		isflags(char c)
 {
-	
+	const char	*flags;
+
+	flags = "-0*.";
+	while (*flags)
+	{
+		if (c == *flags || ft_isdigit(c))
+			return (1);
+		flags++;
+	}
+	return (0);
 }
 
-char	*follow_line(char *current, va_list ap)
+char	*follow_line(char *str, va_list ap)
 {
-	const char	*modifers;
-	const char	*flags;
-	t_specifier	*spec;
+	t_specifier	spec;
 
-	modifers = "cspdiuxX";
-	flags = "-0*.";
-	if (!(spec = (t_specifier*)malloc(sizeof(t_specifier))))
-		return (NULL);
-	if (!(ft_init_specifer(&spec)))
-		return (NULL);
-	if (ismodifer(modifers, *current))
+	ft_init_specifer(&spec);
+	if (isflags(*str))
 	{
-		ft_modes(&spec, ap, *current);
-		return (++current);
+		str = ft_flags(str, &spec, ap);
+		// printf("width -> %d\n", spec.width);
+		// printf("width2 -> %d\n", spec.precision);
 	}
-	if (isflags(flags, current))
+	if (ismodifer(*str))
 	{
-		// ft_flags()
+		ft_modes(&spec, ap, *str);
+		return (++str);
 	}
-	// free enum and spec
+	return (str);
 }
 
 void	ft_parser(const char *format, va_list ap)
 {
-	char	*percent;
 	char	*current;
+	int		count;
 
-	if (!(percent = ft_strchr(format, '%')))
-	{
-		ft_putstr(format);
-		return ;
-	}
-	current = ++percent;
+	count = ft_putnstr(format, '%');
+	current = (char*)format;
+	current += count;
 	while (*current)
 	{
 		current = follow_line(current, ap);
+		count = ft_putnstr(current, '%');
+		current += count;
 		if (*current)
 			current++;
 	}

@@ -6,12 +6,13 @@
 /*   By: dkenchur <dkenchur@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/16 22:35:22 by dkenchur          #+#    #+#             */
-/*   Updated: 2020/11/16 23:05:37 by dkenchur         ###   ########.fr       */
+/*   Updated: 2020/11/23 17:47:47 by dkenchur         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_handlers.h"
 #include "libft.h"
+#include <stdio.h>
 
 void	ft_space_display(int count)
 {
@@ -22,7 +23,7 @@ void	ft_space_display(int count)
 void	ft_display_str(t_specifier *spec, va_list ap)
 {
 	char	*str;
-	int		remainder;
+	//int		remainder;
 	int		str_size;
 	int		space_count;
 
@@ -34,14 +35,14 @@ void	ft_display_str(t_specifier *spec, va_list ap)
 		return ;
 	}
 	str_size = ft_strlen(str);
-	if (!spec->enumerate->minus && spec->width > -1 && spec->precision == -1)
+	if (!spec->enumerate.minus && spec->width > -1 && spec->precision < 0)
 	{
 		space_count = (str_size < spec->width) ? spec->width - str_size : 0;
-		ft_putstr(str);
 		ft_space_display(space_count);
+		ft_putstr(str);
 	}
-	else if (spec->width == -1 && spec->precision > -1)
-		(str_size > spec->precision) ? ft_putnstr(str, spec->precision) : ft_putstr(str);
+	// else if (spec->width == -1 && spec->precision > -1)
+	// 	(str_size > spec->precision) ? ft_putnstr(str, spec->precision) : ft_putstr(str);
 	// to be continue...
 	// if (!spec->enumerate->minus && spec->width > -1 && spec->precision > -1)
 	// {

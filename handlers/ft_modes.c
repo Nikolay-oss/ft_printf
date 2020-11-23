@@ -6,54 +6,55 @@
 /*   By: dkenchur <dkenchur@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/16 16:21:48 by dkenchur          #+#    #+#             */
-/*   Updated: 2020/11/18 19:54:56 by dkenchur         ###   ########.fr       */
+/*   Updated: 2020/11/23 16:10:32 by dkenchur         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_handlers.h"
+#include <stdio.h>
 
-void	ft_select_spec(t_specifier **spec, char c)
+void	ft_select_spec(t_specifier *spec, char c)
 {
 	if (c == 'c')
-		(*spec)->enumerate->c = 1;
+		spec->enumerate.c = 1;
 	else if (c == 's')
-		(*spec)->enumerate->s = 1;
+		spec->enumerate.s = 1;
 	else if (c == 'p')
-		(*spec)->enumerate->p = 1;
+		spec->enumerate.p = 1;
 	else if (c == 'd')
-		(*spec)->enumerate->d = 1;
+		spec->enumerate.d = 1;
 	else if (c == 'i')
-		(*spec)->enumerate->i = 1;
+		spec->enumerate.i = 1;
 	else if (c == 'u')
-		(*spec)->enumerate->u = 1;
+		spec->enumerate.u = 1;
 	else if (c == 'x')
-		(*spec)->enumerate->x = 1;
+		spec->enumerate.x = 1;
 	else if (c == 'X')
-		(*spec)->enumerate->x_x = 1;
+		spec->enumerate.x_x = 1;
 }
 
 void	ft_select_display(t_specifier *spec, va_list ap)
 {
-	if (spec->enumerate->c)
+	if (spec->enumerate.c)
 		;
-	else if (spec->enumerate->d)
+	else if (spec->enumerate.d)
 		;
-	else if (spec->enumerate->i)
+	else if (spec->enumerate.i)
 		;
-	else if (spec->enumerate->p)
+	else if (spec->enumerate.p)
 		;
-	else if (spec->enumerate->s)
+	else if (spec->enumerate.s)
 		ft_display_str(spec, ap);
-	else if (spec->enumerate->u)
+	else if (spec->enumerate.u)
 		;
-	else if (spec->enumerate->x)
+	else if (spec->enumerate.x)
 		;
-	else if (spec->enumerate->x_x)
+	else if (spec->enumerate.x_x)
 		;
 }
 
-void	ft_modes(t_specifier **spec, va_list ap, char c)
+void	ft_modes(t_specifier *spec, va_list ap, char c)
 {
 	ft_select_spec(spec, c);
-	ft_select_display(*spec, ap);
+	ft_select_display(spec, ap);
 }

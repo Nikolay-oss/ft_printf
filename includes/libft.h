@@ -6,7 +6,7 @@
 /*   By: dkenchur <dkenchur@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/29 13:01:35 by dkenchur          #+#    #+#             */
-/*   Updated: 2020/11/16 20:24:39 by dkenchur         ###   ########.fr       */
+/*   Updated: 2020/11/23 16:31:17 by dkenchur         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@
 int					ft_tolower(int c);
 int					ft_toupper(int c);
 void				ft_putstr(const char *str);
-void				ft_putnstr(const char *str, size_t n);
+size_t				ft_putnstr(const char *str, char c);
 void				ft_putchar(char c);
 char				*ft_strjoin(char const *s1, char const *s2);
 size_t				ft_strlen(const char *s);
