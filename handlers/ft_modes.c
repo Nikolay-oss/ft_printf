@@ -6,7 +6,7 @@
 /*   By: dkenchur <dkenchur@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/16 16:21:48 by dkenchur          #+#    #+#             */
-/*   Updated: 2020/11/23 16:10:32 by dkenchur         ###   ########.fr       */
+/*   Updated: 2020/11/25 04:16:46 by dkenchur         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,7 @@ void	ft_select_spec(t_specifier *spec, char c)
 void	ft_select_display(t_specifier *spec, va_list ap)
 {
 	if (spec->enumerate.c)
-		;
+		ft_display_chr(spec, ap);
 	else if (spec->enumerate.d)
 		;
 	else if (spec->enumerate.i)

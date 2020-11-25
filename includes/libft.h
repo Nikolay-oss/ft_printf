@@ -6,7 +6,7 @@
 /*   By: dkenchur <dkenchur@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/29 13:01:35 by dkenchur          #+#    #+#             */
-/*   Updated: 2020/11/23 16:31:17 by dkenchur         ###   ########.fr       */
+/*   Updated: 2020/11/25 03:57:01 by dkenchur         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,9 @@ int					ft_tolower(int c);
 int					ft_toupper(int c);
 void				ft_putstr(const char *str);
 size_t				ft_putnstr(const char *str, char c);
+size_t				ft_putlstr(char *str, size_t len);
 void				ft_putchar(char c);
+void				ft_repeat_symb(int count, char c);
 char				*ft_strjoin(char const *s1, char const *s2);
 size_t				ft_strlen(const char *s);
 char				**ft_split(char const *s, char c);

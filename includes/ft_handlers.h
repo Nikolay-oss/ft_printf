@@ -6,7 +6,7 @@
 /*   By: dkenchur <dkenchur@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/16 13:17:14 by dkenchur          #+#    #+#             */
-/*   Updated: 2020/11/23 16:00:48 by dkenchur         ###   ########.fr       */
+/*   Updated: 2020/11/25 06:00:21 by dkenchur         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,8 +37,10 @@ typedef	struct			s_specifier
 	t_enum				enumerate;
 	int					width;
 	int					precision;
-	void				*value;
+	int					bytes_count;
 }						t_specifier;
 void					ft_modes(t_specifier *spec, va_list ap, char c);
 void					ft_display_str(t_specifier *spec, va_list ap);
+void					ft_display_chr(t_specifier *spec, va_list ap);
+void					ft_display_d(t_specifier *spec, va_list ap);
 #endif
