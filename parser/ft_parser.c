@@ -6,7 +6,7 @@
 /*   By: dkenchur <dkenchur@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/13 15:45:32 by dkenchur          #+#    #+#             */
-/*   Updated: 2020/11/25 05:51:58 by dkenchur         ###   ########.fr       */
+/*   Updated: 2020/11/25 11:26:09 by dkenchur         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,12 +36,12 @@ int		isflags(char c)
 char	*follow_line(t_specifier *spec, char *str, va_list ap)
 {
 	ft_init_specifer(spec);
-	if (isflags(*str))
-	{
+	//if (isflags(*str) || ismodifer(*str))
+	//{
 		str = ft_flags(str, spec, ap);
 		// printf("width -> %d\n", spec.width);
 		// printf("width2 -> %d\n", spec.precision);
-	}
+	//}
 	if (ismodifer(*str))
 	{
 		ft_modes(spec, ap, *str);
@@ -65,10 +65,12 @@ int		ft_parser(const char *format, va_list ap)
 	bytes_count = 0;
 	bytes_count = ft_putnstr(format, '%');
 	current = (char*)format;
-	current += bytes_count;
+	current += bytes_count + 1;
 	while (*current)
 	{
 		current = follow_line(&spec, current, ap);
+		if (spec.bytes_count == -1)
+			return (-1);
 		count = ft_putnstr(current, '%');
 		current += count;
 		bytes_count += spec.bytes_count + count;

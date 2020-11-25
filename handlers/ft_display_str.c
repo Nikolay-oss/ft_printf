@@ -6,7 +6,7 @@
 /*   By: dkenchur <dkenchur@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/16 22:35:22 by dkenchur          #+#    #+#             */
-/*   Updated: 2020/11/25 04:02:47 by dkenchur         ###   ########.fr       */
+/*   Updated: 2020/11/25 12:27:57 by dkenchur         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 #include "libft.h"
 #include <stdio.h>
 
-static	void	ft_width(char *str, t_specifier *spec, int size)
+static	void	ft_width_s(char *str, t_specifier *spec, int size)
 {
 	int		space_count;
 
@@ -28,7 +28,7 @@ static	void	ft_width(char *str, t_specifier *spec, int size)
 		spec->bytes_count += ft_putlstr(str, (str + size) - str);
 }
 
-static	void	ft_precision(char *str, t_specifier *spec, int str_size)
+static	void	ft_precision_s(char *str, t_specifier *spec, int str_size)
 {
 	int	size;
 
@@ -55,7 +55,7 @@ void			ft_display_str(t_specifier *spec, va_list ap)
 	if (spec->width < 0 && spec->precision < 0)
 		spec->bytes_count += ft_putnstr(str, '\0');
 	else if (spec->width > -1 && spec->precision < 0)
-		ft_width(str, spec, str_size);
+		ft_width_s(str, spec, str_size);
 	else if (spec->precision > -1)
-		ft_precision(str, spec, str_size);
+		ft_precision_s(str, spec, str_size);
 }

@@ -6,7 +6,7 @@
 /*   By: dkenchur <dkenchur@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/16 15:21:15 by dkenchur          #+#    #+#             */
-/*   Updated: 2020/11/25 05:47:21 by dkenchur         ###   ########.fr       */
+/*   Updated: 2020/11/25 11:33:55 by dkenchur         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,7 +54,7 @@ static	char	*check_flags(const char *str, t_specifier *spec, va_list ap)
 			ft_select_flag(*str, spec);
 			ft_get_star_value(*str, &star_count, spec, ap);
 		}
-		if (!isflags(*str))
+		if (ismodifer(*str))
 			return ((char*)str);
 		if (*str)
 			str++;
