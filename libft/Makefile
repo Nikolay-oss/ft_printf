@@ -68,20 +68,24 @@ SRCS		= 	ft_memset.c \
 
 CFLAGS		= -Wall -Wextra -Werror
 
+GREEN		= \033[0;32m
+
+RESET		= \033[0m
+
 OBJS		= $(SRCS:.c=.o)
 
 .c.o:
-			$(CC) $(CFLAGS) -I $(INCLUDES) -c $< -o $@
+			@$(CC) $(CFLAGS) -I $(INCLUDES) -c $< -o $@
 
 $(NAME):	$(OBJS)
-			ar rc $(NAME) $(OBJS)
+			@ar rc $(NAME) $(OBJS)
 
 all:		$(NAME)
 
 clean:
-			rm -rf $(OBJS)
+			@rm -rf $(OBJS)
 
 fclean:		clean
-			rm -rf $(NAME)
+			@rm -rf $(NAME)
 
 re:			fclean all
