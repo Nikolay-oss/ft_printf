@@ -6,7 +6,7 @@
 /*   By: dkenchur <dkenchur@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/16 22:35:22 by dkenchur          #+#    #+#             */
-/*   Updated: 2020/11/25 12:27:57 by dkenchur         ###   ########.fr       */
+/*   Updated: 2020/11/27 13:10:21 by dkenchur         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,7 @@ static	void	ft_precision_s(char *str, t_specifier *spec, int str_size)
 	//printf("|%d|\n", spec->precision);
 	size = (spec->precision > str_size) ? 0 : str_size - spec->precision;
 	//printf("|%d|\n", str_size - size);
-	ft_width(str, spec, str_size - size);
+	ft_width_s(str, spec, str_size - size);
 }
 
 void			ft_display_str(t_specifier *spec, va_list ap)

@@ -23,8 +23,8 @@ int		main()
 	// char *s = ft_itoa_base(26, 16);
 	// printf("%s\n", s);
 	// free(s);
-	ft_printf("%-4d Hello%s\n", -42, " world!");
-	printf("%5.3d Hello%s\n", -42, " world!");
+	printf("|%d|\n", ft_printf("%5.3d Hello%s\n", -42, " world!"));
+	printf("|%d|\n", printf("%5.3d Hello%s\n", -42, " world!"));
 	// ft_printf("%q\n");
 	// printf("%q\n");
 }
