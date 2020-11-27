@@ -1,26 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printf.c                                        :+:      :+:    :+:   */
+/*   ft_putlstr.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dkenchur <dkenchur@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/11/13 13:35:57 by dkenchur          #+#    #+#             */
-/*   Updated: 2020/11/25 05:38:26 by dkenchur         ###   ########.fr       */
+/*   Created: 2020/11/25 03:14:29 by dkenchur          #+#    #+#             */
+/*   Updated: 2020/11/25 03:19:24 by dkenchur         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
-#include "ft_parser.h"
+#include "libft.h"
 
-int		ft_printf(const char *format, ...)
+size_t	ft_putlstr(char *str, size_t len)
 {
-	va_list		ap;
-	int			bytes_count;
+	size_t i;
 
-	bytes_count = 0;
-	va_start(ap, format);
-	bytes_count = ft_parser(format, ap);
-	va_end(ap);
-	return (bytes_count);
+	if (!str)
+		return (0);
+	i = 0;
+	while (*(str + i) && i < len)
+		write(1, (str + i++), 1);
+	return (i);
 }

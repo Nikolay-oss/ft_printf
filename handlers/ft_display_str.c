@@ -6,7 +6,7 @@
 /*   By: dkenchur <dkenchur@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/16 22:35:22 by dkenchur          #+#    #+#             */
-/*   Updated: 2020/11/23 17:47:47 by dkenchur         ###   ########.fr       */
+/*   Updated: 2020/11/25 12:27:57 by dkenchur         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,44 +14,48 @@
 #include "libft.h"
 #include <stdio.h>
 
-void	ft_space_display(int count)
+static	void	ft_width_s(char *str, t_specifier *spec, int size)
 {
-	while (count--)
-		ft_putchar(' ');
+	int		space_count;
+
+	space_count = 0;
+	if (spec->enumerate.minus)
+		spec->bytes_count += ft_putlstr(str, (str + size) - str);
+	space_count = (size < spec->width) ? spec->width - size : 0;
+	spec->bytes_count += space_count;
+	ft_repeat_symb(space_count, ' ');
+	if (!spec->enumerate.minus)
+		spec->bytes_count += ft_putlstr(str, (str + size) - str);
 }
 
-void	ft_display_str(t_specifier *spec, va_list ap)
+static	void	ft_precision_s(char *str, t_specifier *spec, int str_size)
+{
+	int	size;
+
+	//printf("|%d|\n", spec->precision);
+	size = (spec->precision > str_size) ? 0 : str_size - spec->precision;
+	//printf("|%d|\n", str_size - size);
+	ft_width(str, spec, str_size - size);
+}
+
+void			ft_display_str(t_specifier *spec, va_list ap)
 {
 	char	*str;
-	//int		remainder;
 	int		str_size;
 	int		space_count;
 
 	str = va_arg(ap, char *);
-	space_count = 0;
-	if (spec->width < 0 && spec->precision < 0)
+	if (!str)
 	{
-		ft_putstr(str);
+		spec->bytes_count += ft_putnstr("(null)", '\0');
 		return ;
 	}
+	space_count = 0;
 	str_size = ft_strlen(str);
-	if (!spec->enumerate.minus && spec->width > -1 && spec->precision < 0)
-	{
-		space_count = (str_size < spec->width) ? spec->width - str_size : 0;
-		ft_space_display(space_count);
-		ft_putstr(str);
-	}
-	// else if (spec->width == -1 && spec->precision > -1)
-	// 	(str_size > spec->precision) ? ft_putnstr(str, spec->precision) : ft_putstr(str);
-	// to be continue...
-	// if (!spec->enumerate->minus && spec->width > -1 && spec->precision > -1)
-	// {
-	// 	remainder = str_size - spec->precision;
-	// 	remainder = remainder > 0 ? remainder : 0;
-	// 	if (spec->width > str_size)
-	// 		space_count = spec->width - str_size + remainder;
-	// 	while (space_count--)
-	// 		ft_putchar(' ');
-	// }
-	// ft_putnstr(str, spec->precision);
+	if (spec->width < 0 && spec->precision < 0)
+		spec->bytes_count += ft_putnstr(str, '\0');
+	else if (spec->width > -1 && spec->precision < 0)
+		ft_width_s(str, spec, str_size);
+	else if (spec->precision > -1)
+		ft_precision_s(str, spec, str_size);
 }

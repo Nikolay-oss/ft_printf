@@ -6,7 +6,7 @@
 /*   By: dkenchur <dkenchur@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/23 13:00:05 by dkenchur          #+#    #+#             */
-/*   Updated: 2020/11/23 16:02:40 by dkenchur         ###   ########.fr       */
+/*   Updated: 2020/11/25 04:04:56 by dkenchur         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,5 +28,5 @@ void	ft_init_specifer(t_specifier *spec)
 	spec->enumerate.zero = 0;
 	spec->width = -1;
 	spec->precision = -1;
-	spec->value = NULL;
+	spec->bytes_count = 0;
 }

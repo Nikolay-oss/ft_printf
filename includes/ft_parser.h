@@ -6,7 +6,7 @@
 /*   By: dkenchur <dkenchur@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/13 15:35:30 by dkenchur          #+#    #+#             */
-/*   Updated: 2020/11/23 14:20:15 by dkenchur         ###   ########.fr       */
+/*   Updated: 2020/11/25 10:22:03 by dkenchur         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,8 +17,10 @@
 # include "libft.h"
 # include "ft_handlers.h"
 
-void	ft_parser(const char *format, va_list ap);
+int		ft_parser(const char *format, va_list ap);
 void	ft_init_specifer(t_specifier *spec);
 char	*ft_flags(const char *str, t_specifier *spec, va_list ap);
+void	ft_get_star_value(char c, int *i, t_specifier *spec, va_list ap);
 int		isflags(char c);
+int		ismodifer(char c);
 #endif

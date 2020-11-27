@@ -1,26 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printf.c                                        :+:      :+:    :+:   */
+/*   ft_get_star_value.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dkenchur <dkenchur@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/11/13 13:35:57 by dkenchur          #+#    #+#             */
-/*   Updated: 2020/11/25 05:38:26 by dkenchur         ###   ########.fr       */
+/*   Created: 2020/11/25 04:42:51 by dkenchur          #+#    #+#             */
+/*   Updated: 2020/11/25 05:48:21 by dkenchur         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
 #include "ft_parser.h"
+#include <stdio.h>
 
-int		ft_printf(const char *format, ...)
+void	ft_get_star_value(char c, int *i, t_specifier *spec, va_list ap)
 {
-	va_list		ap;
-	int			bytes_count;
+	int	num;
 
-	bytes_count = 0;
-	va_start(ap, format);
-	bytes_count = ft_parser(format, ap);
-	va_end(ap);
-	return (bytes_count);
+	if (*i > 1 || c != '*')
+		return ;
+	num = va_arg(ap, int);
+	if (spec->enumerate.point)
+		spec->precision = num;
+	else
+		spec->width = num;
+	(*i)++;
 }

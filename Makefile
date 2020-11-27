@@ -6,7 +6,7 @@
 #    By: dkenchur <dkenchur@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/11/18 19:56:41 by dkenchur          #+#    #+#              #
-#    Updated: 2020/11/23 17:56:49 by dkenchur         ###   ########.fr        #
+#    Updated: 2020/11/25 12:29:15 by dkenchur         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -27,7 +27,8 @@ HANDLERSDIR	= handlers/
 LIBFT		= libft.a
 
 SRCS		= ft_printf.c	$(PARSERDIR)ft_parser.c	$(PARSERDIR)ft_flags.c $(PARSERDIR)ft_init_specifier.c \
-			  $(HANDLERSDIR)ft_display_str.c	$(HANDLERSDIR)ft_modes.c
+			  $(HANDLERSDIR)ft_display_str.c	$(HANDLERSDIR)ft_modes.c	$(HANDLERSDIR)ft_display_chr.c	\
+			  $(PARSERDIR)ft_get_star_value.c	$(HANDLERSDIR)ft_display_d.c
 
 OBJS		= $(SRCS:.c=.o)
 
