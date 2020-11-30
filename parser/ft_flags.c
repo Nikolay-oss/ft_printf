@@ -6,24 +6,12 @@
 /*   By: dkenchur <dkenchur@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/16 15:21:15 by dkenchur          #+#    #+#             */
-/*   Updated: 2020/11/25 11:33:55 by dkenchur         ###   ########.fr       */
+/*   Updated: 2020/11/30 22:40:09 by dkenchur         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_parser.h"
 #include <stdio.h>
-
-static	void	ft_select_flag(char c, t_specifier *spec)
-{
-	if (c == '0')
-		spec->enumerate.zero = 1;
-	else if (c == '*')
-		spec->enumerate.star = 1;
-	else if (c == '-')
-		spec->enumerate.minus = 1;
-	else if (c == '.')
-		spec->enumerate.point = 1;
-}
 
 static	char	*get_end_idx(const char *str, int *num)
 {
@@ -33,7 +21,7 @@ static	char	*get_end_idx(const char *str, int *num)
 	return ((char*)str);
 }
 
-static	char	*check_flags(const char *str, t_specifier *spec, va_list ap)
+static	char	*check_flags(const char *str, t_specifier *spec)
 {
 	int	star_count;
 
@@ -44,15 +32,15 @@ static	char	*check_flags(const char *str, t_specifier *spec, va_list ap)
 	{
 		if (ft_isdigit(*str))
 		{
-			if (!spec->enumerate.point)
+			if (!(spec->flags & FLG_POINT))
 				str = get_end_idx(str, &spec->width);
-			if (spec->enumerate.point)
+			if (spec->flags & FLG_POINT)
 				str = get_end_idx(str, &spec->precision);
 		}
 		if (*str == '.' || *str == '*')
 		{
 			ft_select_flag(*str, spec);
-			ft_get_star_value(*str, &star_count, spec, ap);
+			ft_get_star_value(*str, &star_count, spec);
 		}
 		if (ismodifer(*str))
 			return ((char*)str);
@@ -64,8 +52,10 @@ static	char	*check_flags(const char *str, t_specifier *spec, va_list ap)
 
 static	void	check_point(t_specifier *spec)
 {
-	if (spec->enumerate.point && spec->precision < 0)
+	if (spec->flags & FLG_POINT && spec->precision < 0)
 		spec->precision = 0;
+	if (spec->flags & FLG_POINT && spec->width < 0)
+		spec->width = 0;
 	// else if (spec->enumerate.point && spec->width < 0 && spec->precision > 0)
 	// 	spec->width = 0;
 	// else if (spec->enumerate.point && spec->width > 0 && spec->precision < 0)
@@ -76,11 +66,11 @@ static	void	check_point(t_specifier *spec)
 *	 подумать на сегой при нескольких звездочках
 */
 
-char			*ft_flags(const char *str, t_specifier *spec, va_list ap)
+char			*ft_flags(const char *str, t_specifier *spec)
 {
 	char *current;
 	
-	current = check_flags(str, spec, ap);
+	current = check_flags(str, spec);
 	check_point(spec);
 	return (current);
 }

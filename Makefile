@@ -6,7 +6,7 @@
 #    By: dkenchur <dkenchur@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/11/18 19:56:41 by dkenchur          #+#    #+#              #
-#    Updated: 2020/11/25 12:29:15 by dkenchur         ###   ########.fr        #
+#    Updated: 2020/11/30 23:22:48 by dkenchur         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -26,15 +26,17 @@ HANDLERSDIR	= handlers/
 
 LIBFT		= libft.a
 
-SRCS		= ft_printf.c	$(PARSERDIR)ft_parser.c	$(PARSERDIR)ft_flags.c $(PARSERDIR)ft_init_specifier.c \
-			  $(HANDLERSDIR)ft_display_str.c	$(HANDLERSDIR)ft_modes.c	$(HANDLERSDIR)ft_display_chr.c	\
-			  $(PARSERDIR)ft_get_star_value.c	$(HANDLERSDIR)ft_display_d.c
+SRCS		= ft_printf.c						$(PARSERDIR)ft_parser.c			$(PARSERDIR)ft_flags.c \
+			  $(HANDLERSDIR)ft_display_str.c	$(HANDLERSDIR)ft_modes.c		$(PARSERDIR)ft_init_specifier.c \
+			  $(PARSERDIR)ft_get_star_value.c	$(HANDLERSDIR)ft_display_d.c	$(HANDLERSDIR)ft_display_chr.c \
+			  $(HANDLERSDIR)ft_display_x.c		$(HANDLERSDIR)ft_itoa_base_p.c	$(HANDLERSDIR)ft_itoa_base_x.c \
+			  $(HANDLERSDIR)ft_display_p.c
 
 OBJS		= $(SRCS:.c=.o)
 
 GREEN		= \033[0;32m
 
-RED		= \033[0;31m
+RED			= \033[0;31m
 
 RESET		= \033[0m
 #gcc -I includes main.c -L. -lftprintf компиляция с либой

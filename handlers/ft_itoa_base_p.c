@@ -1,22 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_itoa_base.c                                     :+:      :+:    :+:   */
+/*   ft_itoa_base_p.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dkenchur <dkenchur@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/11/25 07:07:28 by dkenchur          #+#    #+#             */
-/*   Updated: 2020/11/30 19:54:06 by dkenchur         ###   ########.fr       */
+/*   Created: 2020/11/30 20:09:33 by dkenchur          #+#    #+#             */
+/*   Updated: 2020/11/30 23:31:22 by dkenchur         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "ft_handlers.h"
 #include "libft.h"
 
-static size_t	init_size(int n, int base)
+static size_t	init_size(unsigned long long int n, int base)
 {
 	size_t	size;
 
-	size = (n >= 0) ? 1 : 2;
+	size = 2;//(n >= 0) ? 3 : 4;
 	while (n / base)
 	{
 		n /= base;
@@ -42,27 +43,22 @@ static	char	select_digit(int nbr)
 	return (nbr + '0');
 }
 
-char			*ft_itoa_base(int n, int base)
+char			*ft_itoa_base_p(unsigned long long int n, int base)
 {
-	long long int	num;
-	char			*str;
-	size_t			size;
+	unsigned long long int		num;
+	char						*str;
+	size_t						size;
 
 	size = init_size(n, base);
 	num = n;
-	if (!(str = (char*)ft_calloc(size + 1, 1)))
+	if (!(str = (char*)ft_calloc(size + 1, sizeof(char))))
 		return (str);
-	if (num < 0)
-	{
-		num *= -1;
-		*str = '-';
-	}
-	while (size > 0)
+	*(str + 0) = '0';
+	*(str + 1) = 'x';
+	while (size > 1)
 	{
 		*(str + --size) = select_digit(num % base);
 		num /= base;
-		if (*(str + size - 1) == '-' && size == 1)
-			break ;
 	}
 	return (str);
 }

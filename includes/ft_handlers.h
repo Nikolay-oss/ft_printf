@@ -6,41 +6,43 @@
 /*   By: dkenchur <dkenchur@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/16 13:17:14 by dkenchur          #+#    #+#             */
-/*   Updated: 2020/11/25 12:28:55 by dkenchur         ###   ########.fr       */
+/*   Updated: 2020/11/30 23:19:32 by dkenchur         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef FT_HANDLERS_H
 # define FT_HANDLERS_H
 # include <stdarg.h>
+# define FLG_NONE	0b00000000
+# define FLG_MINUS	0b00000001
+# define FLG_POINT	0b00000010
+# define FLG_STAR	0b00000100
+# define FLG_ZERO	0b00001000
 
 typedef	unsigned int	t_bool;
 
-typedef	struct			s_enum
-{
-	t_bool				zero;
-	t_bool				minus;
-	t_bool				star;
-	t_bool				point;
-	t_bool				c;
-	t_bool				s;
-	t_bool				p;
-	t_bool				d;
-	t_bool				i;
-	t_bool				u;
-	t_bool				x;
-	t_bool				x_x;
-}						t_enum;
-
 typedef	struct			s_specifier
 {
-	t_enum				enumerate;
+	va_list				ap;
+	unsigned int		flags;
 	int					width;
 	int					precision;
 	int					bytes_count;
 }						t_specifier;
-void					ft_modes(t_specifier *spec, va_list ap, char c);
-void					ft_display_str(t_specifier *spec, va_list ap);
-void					ft_display_chr(t_specifier *spec, va_list ap);
-void					ft_display_d(t_specifier *spec, va_list ap);
+void					ft_modes(t_specifier *spec, char c);
+void					ft_display_str(t_specifier *spec);
+void					ft_display_chr(t_specifier *spec);
+void					ft_display_d(t_specifier *spec);
+void					ft_display_x(t_specifier *spec, t_bool flag);
+void					ft_display_p(t_specifier *spec);
+void					ft_select_flag(char c, t_specifier *spec);
+char					*ft_itoa_base_x(unsigned int n, int base);
+char					*ft_itoa_base_p(unsigned long long int n, int base);
+void					choose_direction(t_specifier *spec, char *nbr,
+							int nbr_size);
+void					zero_handler(t_specifier *spec, char *nbr,
+							int nbr_size);
+void					width_prec_handler(t_specifier *spec, char *nbr,
+							int nbr_size);
+void					ft_disp(t_specifier *spec, char *nbr, int precision);
 #endif

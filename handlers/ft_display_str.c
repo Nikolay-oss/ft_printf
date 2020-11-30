@@ -6,7 +6,7 @@
 /*   By: dkenchur <dkenchur@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/16 22:35:22 by dkenchur          #+#    #+#             */
-/*   Updated: 2020/11/27 13:10:21 by dkenchur         ###   ########.fr       */
+/*   Updated: 2020/11/30 20:22:00 by dkenchur         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,12 +19,12 @@ static	void	ft_width_s(char *str, t_specifier *spec, int size)
 	int		space_count;
 
 	space_count = 0;
-	if (spec->enumerate.minus)
+	if (spec->flags & FLG_MINUS)
 		spec->bytes_count += ft_putlstr(str, (str + size) - str);
 	space_count = (size < spec->width) ? spec->width - size : 0;
 	spec->bytes_count += space_count;
 	ft_repeat_symb(space_count, ' ');
-	if (!spec->enumerate.minus)
+	if (!(spec->flags & FLG_MINUS))
 		spec->bytes_count += ft_putlstr(str, (str + size) - str);
 }
 
@@ -38,18 +38,16 @@ static	void	ft_precision_s(char *str, t_specifier *spec, int str_size)
 	ft_width_s(str, spec, str_size - size);
 }
 
-void			ft_display_str(t_specifier *spec, va_list ap)
+void			ft_display_str(t_specifier *spec)
 {
 	char	*str;
 	int		str_size;
 	int		space_count;
 
-	str = va_arg(ap, char *);
+	str = va_arg(spec->ap, char *);
+	//printf("prec -> %d\n", spec->precision);
 	if (!str)
-	{
-		spec->bytes_count += ft_putnstr("(null)", '\0');
-		return ;
-	}
+		str = "(null)";
 	space_count = 0;
 	str_size = ft_strlen(str);
 	if (spec->width < 0 && spec->precision < 0)

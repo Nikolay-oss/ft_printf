@@ -6,81 +6,93 @@
 /*   By: dkenchur <dkenchur@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/25 05:56:17 by dkenchur          #+#    #+#             */
-/*   Updated: 2020/11/27 15:57:52 by dkenchur         ###   ########.fr       */
+/*   Updated: 2020/11/30 23:35:27 by dkenchur         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_handlers.h"
 #include "libft.h"
+#include <stdio.h>
 
-/*
-*	ИСПРАВИТЬ!
-*/
-
-static	void	ft_disp(t_specifier *spec, char *str, int precision)
+void	ft_disp(t_specifier *spec, char *nbr, int precision)
 {
-	
+	int	sign;
+
+	sign = (*nbr == '-') ? 1 : 0;
+	spec->bytes_count += ft_putlstr(nbr, sign);
+	ft_repeat_symb(precision, '0');
+	spec->bytes_count += ft_putnstr(nbr + sign, '\0');
 }
 
-static	void	get_width_and_prec(t_specifier *spec, char *str, int str_size)
+void	width_prec_handler(t_specifier *spec, char *nbr, int nbr_size)
 {
 	int	width;
 	int	precision;
 
 	width = 0;
 	precision = 0;
-	if (spec->precision >= str_size)
-		precision = spec->precision - (str_size - ((*str == '-') ? 1 : 0));
-	if (spec->width > str_size + precision)
-		width = spec->width - (str_size + precision);
-	spec->bytes_count += width + precision;
-	if (spec->enumerate.minus)
+	if (spec->precision >= nbr_size)
+		precision = spec->precision - (nbr_size - ((*nbr == '-') ? 1 : 0));
+	if (spec->width > nbr_size + precision)
+		width = spec->width - (nbr_size + precision);
+	if (!spec->precision && *nbr == '0')
 	{
-		spec->bytes_count += ft_putlstr(str, 1);
-		ft_repeat_symb(precision, '0');
-		spec->bytes_count += ft_putnstr(str + 1, '\0');
+		spec->bytes_count += spec->width;
+		ft_repeat_symb(spec->width, ' ');
+		return ;
+	}
+	spec->bytes_count += width + precision;
+	if (spec->flags & FLG_MINUS)
+	{
+		ft_disp(spec, nbr, precision);
 		ft_repeat_symb(width, ' ');
 	}
 	else
 	{
 		ft_repeat_symb(width, ' ');
-		spec->bytes_count += ft_putlstr(str, 1);
-		ft_repeat_symb(precision, '0');
-		spec->bytes_count += ft_putnstr(str + 1, '\0');
+		ft_disp(spec, nbr, precision);
 	}
 }
 
-static	void	choose_direction(t_specifier *spec, char *str, int str_size)
+void	zero_handler(t_specifier *spec, char *nbr, int nbr_size)
+{
+	int	size;
+
+	size = 0;
+	if (spec->width > nbr_size)
+	{
+		size = spec->width - nbr_size;
+		spec->bytes_count += size;
+		ft_disp(spec, nbr, size);
+	}
+}
+
+void	choose_direction(t_specifier *spec, char *nbr, int nbr_size)
 {
 	if (spec->width < 0 && spec->precision < 0)
-	{
-		spec->bytes_count += ft_putnstr(str, '\0');
-		return ;
-	}
-	get_width_and_prec(spec, str, str_size);
+		spec->bytes_count += ft_putnstr(nbr, '\0');
+	else if (spec->flags & FLG_ZERO)
+		zero_handler(spec, nbr, nbr_size);
+	else
+		width_prec_handler(spec, nbr, nbr_size);
 }
 
-void			ft_display_d(t_specifier *spec, va_list ap)
+void	ft_display_d(t_specifier *spec)
 {
 	int		num;
-	char	*str;
-	int		str_size;
+	char	*nbr;
+	int		nbr_size;
 
-	num = va_arg(ap, int);
-	str_size = 0;
-	// if (num < 0)
-	// {
-	// 	num *= -1;
-	// 	sign = 0;
-	// }
-	if (!(str = ft_itoa(num)))
+	num = va_arg(spec->ap, int);
+	nbr_size = 0;
+	if (!(nbr = ft_itoa(num)))
 	{
 		spec->bytes_count = -1;
 		return ;
 	}
-	str_size = ft_strlen(str);
-	if (spec->enumerate.minus && spec->enumerate.zero)
-		spec->enumerate.zero = 0;
-	choose_direction(spec, str, str_size);
-	free(str);
+	nbr_size = ft_strlen(nbr);
+	if (spec->precision > -1 || (spec->flags & FLG_MINUS))
+		spec->flags &= 0b11110111;
+	choose_direction(spec, nbr, nbr_size);
+	free(nbr);
 }

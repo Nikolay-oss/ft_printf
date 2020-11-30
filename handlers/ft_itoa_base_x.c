@@ -1,18 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_itoa_base.c                                     :+:      :+:    :+:   */
+/*   ft_itoa_base_x.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dkenchur <dkenchur@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/11/25 07:07:28 by dkenchur          #+#    #+#             */
-/*   Updated: 2020/11/30 19:54:06 by dkenchur         ###   ########.fr       */
+/*   Created: 2020/11/30 19:41:13 by dkenchur          #+#    #+#             */
+/*   Updated: 2020/11/30 22:57:02 by dkenchur         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "ft_handlers.h"
 #include "libft.h"
 
-static size_t	init_size(int n, int base)
+static size_t	init_size(unsigned int n, int base)
 {
 	size_t	size;
 
@@ -42,27 +43,20 @@ static	char	select_digit(int nbr)
 	return (nbr + '0');
 }
 
-char			*ft_itoa_base(int n, int base)
+char			*ft_itoa_base_x(unsigned int n, int base)
 {
-	long long int	num;
-	char			*str;
-	size_t			size;
+	unsigned int		num;
+	char				*str;
+	size_t				size;
 
 	size = init_size(n, base);
 	num = n;
 	if (!(str = (char*)ft_calloc(size + 1, 1)))
 		return (str);
-	if (num < 0)
-	{
-		num *= -1;
-		*str = '-';
-	}
 	while (size > 0)
 	{
 		*(str + --size) = select_digit(num % base);
 		num /= base;
-		if (*(str + size - 1) == '-' && size == 1)
-			break ;
 	}
 	return (str);
 }

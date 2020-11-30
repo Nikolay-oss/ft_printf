@@ -6,7 +6,7 @@
 /*   By: dkenchur <dkenchur@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/13 15:45:32 by dkenchur          #+#    #+#             */
-/*   Updated: 2020/11/25 11:26:09 by dkenchur         ###   ########.fr       */
+/*   Updated: 2020/11/30 22:40:38 by dkenchur         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,30 +33,29 @@ int		isflags(char c)
 	return (0);
 }
 
-char	*follow_line(t_specifier *spec, char *str, va_list ap)
+char	*follow_line(t_specifier *spec, char *str)
 {
 	ft_init_specifer(spec);
 	//if (isflags(*str) || ismodifer(*str))
 	//{
-		str = ft_flags(str, spec, ap);
+		str = ft_flags(str, spec);
 		// printf("width -> %d\n", spec.width);
 		// printf("width2 -> %d\n", spec.precision);
 	//}
 	if (ismodifer(*str))
 	{
-		ft_modes(spec, ap, *str);
+		ft_modes(spec, *str);
 		return (++str);
 	}
 	return (str);
 }
 
 /*
-* количество выведенных байт записать в структуру
+*  количество выведенных байт записать в структуру
 */
 
-int		ft_parser(const char *format, va_list ap)
+int		ft_parser(const char *format, t_specifier *spec)
 {
-	t_specifier	spec;
 	char		*current;
 	int			count;
 	int			bytes_count;
@@ -68,12 +67,13 @@ int		ft_parser(const char *format, va_list ap)
 	current += bytes_count + 1;
 	while (*current)
 	{
-		current = follow_line(&spec, current, ap);
-		if (spec.bytes_count == -1)
+		current = follow_line(spec, current);
+		//printf("\n\n%d\n\n", spec->bytes_count);
+		if (spec->bytes_count == -1)
 			return (-1);
 		count = ft_putnstr(current, '%');
 		current += count;
-		bytes_count += spec.bytes_count + count;
+		bytes_count += spec->bytes_count + count;
 		if (*current)
 			current++;
 	}
