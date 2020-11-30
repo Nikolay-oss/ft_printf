@@ -6,7 +6,7 @@
 /*   By: dkenchur <dkenchur@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/30 20:09:33 by dkenchur          #+#    #+#             */
-/*   Updated: 2020/11/30 23:31:22 by dkenchur         ###   ########.fr       */
+/*   Updated: 2020/11/30 23:57:49 by dkenchur         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ static size_t	init_size(unsigned long long int n, int base)
 {
 	size_t	size;
 
-	size = 2;//(n >= 0) ? 3 : 4;
+	size = 2;
 	while (n / base)
 	{
 		n /= base;

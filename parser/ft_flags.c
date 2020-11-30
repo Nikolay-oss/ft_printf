@@ -6,7 +6,7 @@
 /*   By: dkenchur <dkenchur@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/16 15:21:15 by dkenchur          #+#    #+#             */
-/*   Updated: 2020/11/30 22:40:09 by dkenchur         ###   ########.fr       */
+/*   Updated: 2020/12/01 00:14:22 by dkenchur         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,9 +52,9 @@ static	char	*check_flags(const char *str, t_specifier *spec)
 
 static	void	check_point(t_specifier *spec)
 {
-	if (spec->flags & FLG_POINT && spec->precision < 0)
+	if ((spec->flags & FLG_POINT) && spec->precision < 0)
 		spec->precision = 0;
-	if (spec->flags & FLG_POINT && spec->width < 0)
+	if ((spec->flags & FLG_POINT) && spec->width < 0)
 		spec->width = 0;
 	// else if (spec->enumerate.point && spec->width < 0 && spec->precision > 0)
 	// 	spec->width = 0;

@@ -6,7 +6,7 @@
 /*   By: dkenchur <dkenchur@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/16 13:17:14 by dkenchur          #+#    #+#             */
-/*   Updated: 2020/11/30 23:19:32 by dkenchur         ###   ########.fr       */
+/*   Updated: 2020/12/01 00:19:31 by dkenchur         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,6 +35,7 @@ void					ft_display_chr(t_specifier *spec);
 void					ft_display_d(t_specifier *spec);
 void					ft_display_x(t_specifier *spec, t_bool flag);
 void					ft_display_p(t_specifier *spec);
+void					ft_display_u(t_specifier *spec);
 void					ft_select_flag(char c, t_specifier *spec);
 char					*ft_itoa_base_x(unsigned int n, int base);
 char					*ft_itoa_base_p(unsigned long long int n, int base);

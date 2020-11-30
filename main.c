@@ -108,8 +108,54 @@ int		main()
 	// printf("|%d|\n", printf("%5.p!\n", 0));
 	// printf("|%d|\n", ft_printf("%02p!\n", 0));
 	// printf("|%d|\n", printf("%02p!\n", 0));
-	printf("|%d|\n", ft_printf("%p!\n", NULL));
-	printf("|%d|\n", printf("%p!\n", NULL));
+	// printf("|%d|\n", ft_printf("%p!\n", NULL));
+	// printf("|%d|\n", printf("%p!\n", NULL));
+
+	/*
+	*	%i
+	*/
+
+	// printf("|%d|\n", ft_printf("%i!\n", 42));
+	// printf("|%d|\n", printf("%i!\n", 42));
+	// printf("|%d|\n", ft_printf("%3i!\n", 42));
+	// printf("|%d|\n", printf("%3i!\n", 42));
+	// printf("|%d|\n", ft_printf("%5i!\n", 42));
+	// printf("|%d|\n", printf("%5i!\n", 42));
+	// printf("|%d|\n", ft_printf("%5.3i!\n", 42));
+	// printf("|%d|\n", printf("%5.3i!\n", 42));
+	// printf("|%d|\n", ft_printf("%.i!\n", 42));
+	// printf("|%d|\n", printf("%.i!\n", 42));
+	// printf("|%d|\n", ft_printf("%05.i!\n", -42));
+	// printf("|%d|\n", printf("%05.i!\n", -42));
+	// printf("|%d|\n", ft_printf("%-5.20i!\n", -42));
+	// printf("|%d|\n", printf("%-5.20i!\n", -42));
+	// printf("|%d|\n", ft_printf("%5.i!\n", 0));
+	// printf("|%d|\n", printf("%5.i!\n", 0));
+	// printf("|%d|\n", ft_printf("%02i!\n", 0));
+	// printf("|%d|\n", printf("%02i!\n", 0));
+
+	/*
+	*	%u
+	*/
+
+	printf("|%d|\n", ft_printf("%u!\n", 42));
+	printf("|%d|\n", printf("%u!\n", 42));
+	printf("|%d|\n", ft_printf("%3u!\n", 42));
+	printf("|%d|\n", printf("%3u!\n", 42));
+	printf("|%d|\n", ft_printf("%5u!\n", 42));
+	printf("|%d|\n", printf("%5u!\n", 42));
+	printf("|%d|\n", ft_printf("%5.3u!\n", 42));
+	printf("|%d|\n", printf("%5.3u!\n", 42));
+	printf("|%d|\n", ft_printf("%.u!\n", 42));
+	printf("|%d|\n", printf("%.u!\n", 42));
+	printf("|%d|\n", ft_printf("%05.u!\n", -42));
+	printf("|%d|\n", printf("%05.u!\n", -42));
+	printf("|%d|\n", ft_printf("%-5.20u!\n", -42));
+	printf("|%d|\n", printf("%-5.20u!\n", -42));
+	printf("|%d|\n", ft_printf("%5.u!\n", 0));
+	printf("|%d|\n", printf("%5.u!\n", 0));
+	printf("|%d|\n", ft_printf("%02u!\n", 0));
+	printf("|%d|\n", printf("%02u!\n", 0));
 
 	// printf("|%d|\n", printf("%.1da\n", 0));
 	// printf("|%d|\n", ft_printf("%.1da\n", 0));
