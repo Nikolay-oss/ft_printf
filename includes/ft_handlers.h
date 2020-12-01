@@ -36,6 +36,7 @@ void					ft_display_d(t_specifier *spec);
 void					ft_display_x(t_specifier *spec, t_bool flag);
 void					ft_display_p(t_specifier *spec);
 void					ft_display_u(t_specifier *spec);
+void					ft_display_special(t_specifier *spec, char *str);
 void					ft_select_flag(char c, t_specifier *spec);
 char					*ft_itoa_base_x(unsigned int n, int base);
 char					*ft_itoa_base_p(unsigned long long int n, int base);

@@ -13,47 +13,6 @@
 #include "ft_parser.h"
 #include <stdio.h>
 
-int		ismodifer(char c)
-{
-	const char	*modifers;
-
-	modifers = "cspdiuxX";
-	if (ft_memchr(modifers, c, 8))
-		return (1);
-	return (0);
-}
-
-int		isflags(char c)
-{
-	const char	*flags;
-
-	flags = "-0*.";
-	if (ft_memchr(flags, c, 4) || ft_isdigit(c))
-		return (1);
-	return (0);
-}
-
-char	*follow_line(t_specifier *spec, char *str)
-{
-	ft_init_specifer(spec);
-	//if (isflags(*str) || ismodifer(*str))
-	//{
-		str = ft_flags(str, spec);
-		// printf("width -> %d\n", spec.width);
-		// printf("width2 -> %d\n", spec.precision);
-	//}
-	if (ismodifer(*str))
-	{
-		ft_modes(spec, *str);
-		return (++str);
-	}
-	return (str);
-}
-
-/*
-*  количество выведенных байт записать в структуру
-*/
-
 int		ft_parser(const char *format, t_specifier *spec)
 {
 	char		*current;
@@ -64,18 +23,19 @@ int		ft_parser(const char *format, t_specifier *spec)
 	bytes_count = 0;
 	bytes_count = ft_putnstr(format, '%');
 	current = (char*)format;
-	current += bytes_count + 1;
+	current += bytes_count; //+ 1;
 	while (*current)
 	{
-		current = follow_line(spec, current);
-		//printf("\n\n%d\n\n", spec->bytes_count);
+		current++;
+		ft_init_specifier(spec);
+		follow_line(&current, spec);
 		if (spec->bytes_count == -1)
 			return (-1);
 		count = ft_putnstr(current, '%');
 		current += count;
 		bytes_count += spec->bytes_count + count;
-		if (*current)
-			current++;
+		//if (*current)
+		//	current++;
 	}
 	return (bytes_count);
 }

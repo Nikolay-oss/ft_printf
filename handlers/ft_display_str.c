@@ -32,9 +32,7 @@ static	void	ft_precision_s(char *str, t_specifier *spec, int str_size)
 {
 	int	size;
 
-	//printf("|%d|\n", spec->precision);
 	size = (spec->precision > str_size) ? 0 : str_size - spec->precision;
-	//printf("|%d|\n", str_size - size);
 	ft_width_s(str, spec, str_size - size);
 }
 
@@ -42,13 +40,10 @@ void			ft_display_str(t_specifier *spec)
 {
 	char	*str;
 	int		str_size;
-	int		space_count;
 
 	str = va_arg(spec->ap, char *);
-	//printf("prec -> %d\n", spec->precision);
 	if (!str)
 		str = "(null)";
-	space_count = 0;
 	str_size = ft_strlen(str);
 	if (spec->width < 0 && spec->precision < 0)
 		spec->bytes_count += ft_putnstr(str, '\0');

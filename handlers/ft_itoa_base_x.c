@@ -26,36 +26,21 @@ static size_t	init_size(unsigned int n, int base)
 	return (size);
 }
 
-static	char	select_digit(int nbr)
-{
-	if (nbr == 10)
-		return ('a');
-	else if (nbr == 11)
-		return ('b');
-	else if (nbr == 12)
-		return ('c');
-	else if (nbr == 13)
-		return ('d');
-	else if (nbr == 14)
-		return ('e');
-	else if (nbr == 15)
-		return ('f');
-	return (nbr + '0');
-}
-
 char			*ft_itoa_base_x(unsigned int n, int base)
 {
 	unsigned int		num;
 	char				*str;
 	size_t				size;
+	const char			*arr_base;
 
 	size = init_size(n, base);
 	num = n;
 	if (!(str = (char*)ft_calloc(size + 1, 1)))
 		return (str);
+	arr_base = "0123456789ABCDEF";
 	while (size > 0)
 	{
-		*(str + --size) = select_digit(num % base);
+		*(str + --size) = *(arr_base + (num % base));
 		num /= base;
 	}
 	return (str);

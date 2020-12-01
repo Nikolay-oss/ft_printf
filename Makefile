@@ -26,11 +26,11 @@ HANDLERSDIR	= handlers/
 
 LIBFT		= libft.a
 
-SRCS		= ft_printf.c						$(PARSERDIR)ft_parser.c			$(PARSERDIR)ft_flags.c \
+SRCS		= ft_printf.c						$(PARSERDIR)ft_parser.c			$(PARSERDIR)follow_line.c \
 			  $(HANDLERSDIR)ft_display_str.c	$(HANDLERSDIR)ft_modes.c		$(PARSERDIR)ft_init_specifier.c \
 			  $(PARSERDIR)ft_get_star_value.c	$(HANDLERSDIR)ft_display_d.c	$(HANDLERSDIR)ft_display_chr.c \
 			  $(HANDLERSDIR)ft_display_x.c		$(HANDLERSDIR)ft_itoa_base_p.c	$(HANDLERSDIR)ft_itoa_base_x.c \
-			  $(HANDLERSDIR)ft_display_p.c		$(HANDLERSDIR)ft_display_u.c
+			  $(HANDLERSDIR)ft_display_p.c		$(HANDLERSDIR)ft_display_u.c	$(HANDLERSDIR)ft_display_special.c
 
 OBJS		= $(SRCS:.c=.o)
 
@@ -41,7 +41,7 @@ RED			= \033[0;31m
 RESET		= \033[0m
 #gcc -I includes main.c -L. -lftprintf компиляция с либой
 %.o:	%.c
-			@$(CC) -I $(INCLUDES) -c $< -o $@
+			@$(CC) $(CFLAGS) -I $(INCLUDES) -c $< -o $@
 
 $(NAME):	$(OBJS)
 			@make -C $(LIBFTDIR)

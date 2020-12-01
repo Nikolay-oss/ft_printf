@@ -14,14 +14,14 @@
 #include "libft.h"
 #include <stdio.h>
 
-static	void	ft_toupper_case(char **nbr)
+static	void	ft_tolower_case(char **nbr)
 {
 	int	i;
 
 	i = 0;
 	while (*(nbr + i))
 	{
-		*(*nbr + i) = ft_toupper(*(*nbr + i));
+		*(*nbr + i) = ft_tolower(*(*nbr + i));
 		i++;
 	}
 }
@@ -43,7 +43,7 @@ void			ft_display_x(t_specifier *spec, t_bool flag)
 	if (spec->precision > -1 || (spec->flags & FLG_MINUS))
 		spec->flags &= 0b11110111;
 	if (flag)
-		ft_toupper_case(&nbr);
+		ft_tolower_case(&nbr);
 	choose_direction(spec, nbr, nbr_size);
 	free(nbr);
 }

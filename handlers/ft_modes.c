@@ -11,6 +11,7 @@
 /* ************************************************************************** */
 
 #include "ft_handlers.h"
+#include "libft.h"
 #include <stdio.h>
 
 void	ft_select_flag(char c, t_specifier *spec)
@@ -40,9 +41,11 @@ void	ft_select_display(t_specifier *spec, char c)
 	else if (c == 'u')
 		ft_display_u(spec);
 	else if (c == 'x')
-		ft_display_x(spec, 0);
-	else if (c == 'X')
 		ft_display_x(spec, 1);
+	else if (c == 'X')
+		ft_display_x(spec, 0);
+	else if (c == '%')
+		spec->bytes_count += ft_putlstr("%", 1);
 }
 
 void	ft_modes(t_specifier *spec, char c)

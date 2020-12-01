@@ -18,8 +18,8 @@
 # include "ft_handlers.h"
 
 int		ft_parser(const char *format, t_specifier *spec);
-void	ft_init_specifer(t_specifier *spec);
-char	*ft_flags(const char *str, t_specifier *spec);
+void	ft_init_specifier(t_specifier *spec);
+void	follow_line(char **str, t_specifier *spec);
 void	ft_get_star_value(char c, int *i, t_specifier *spec);
 int		isflags(char c);
 int		ismodifer(char c);

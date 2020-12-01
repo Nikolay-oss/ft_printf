@@ -12,7 +12,7 @@
 
 #include "ft_parser.h"
 
-void	ft_init_specifer(t_specifier *spec)
+void	ft_init_specifier(t_specifier *spec)
 {
 	// spec->enumerate.c = 0;
 	// spec->enumerate.d = 0;

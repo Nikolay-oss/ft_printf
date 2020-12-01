@@ -26,28 +26,12 @@ static size_t	init_size(unsigned long long int n, int base)
 	return (size);
 }
 
-static	char	select_digit(int nbr)
-{
-	if (nbr == 10)
-		return ('a');
-	else if (nbr == 11)
-		return ('b');
-	else if (nbr == 12)
-		return ('c');
-	else if (nbr == 13)
-		return ('d');
-	else if (nbr == 14)
-		return ('e');
-	else if (nbr == 15)
-		return ('f');
-	return (nbr + '0');
-}
-
 char			*ft_itoa_base_p(unsigned long long int n, int base)
 {
 	unsigned long long int		num;
 	char						*str;
 	size_t						size;
+	char						*base_arr;
 
 	size = init_size(n, base);
 	num = n;
@@ -55,9 +39,10 @@ char			*ft_itoa_base_p(unsigned long long int n, int base)
 		return (str);
 	*(str + 0) = '0';
 	*(str + 1) = 'x';
+	base_arr = "0123456789ABCDEF";
 	while (size > 1)
 	{
-		*(str + --size) = select_digit(num % base);
+		*(str + --size) = *(base_arr + (num % base));
 		num /= base;
 	}
 	return (str);
