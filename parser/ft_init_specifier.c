@@ -14,18 +14,6 @@
 
 void	ft_init_specifier(t_specifier *spec)
 {
-	// spec->enumerate.c = 0;
-	// spec->enumerate.d = 0;
-	// spec->enumerate.i = 0;
-	// spec->enumerate.minus = 0;
-	// spec->enumerate.p = 0;
-	// spec->enumerate.point = 0;
-	// spec->enumerate.s = 0;
-	// spec->enumerate.star = 0;
-	// spec->enumerate.u = 0;
-	// spec->enumerate.x = 0;
-	// spec->enumerate.x_x = 0;
-	// spec->enumerate.zero = 0;
 	spec->flags = FLG_NONE;
 	spec->width = -1;
 	spec->precision = -1;

@@ -16,7 +16,7 @@
 int		ft_printf(const char *format, ...)
 {
 	t_specifier	spec;
-	int bytes_count;
+	int			bytes_count;
 
 	bytes_count = 0;
 	va_start(spec.ap, format);
