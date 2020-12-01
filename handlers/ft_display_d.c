@@ -14,28 +14,37 @@
 #include "libft.h"
 #include <stdio.h>
 
+int	ft_shift(char *nbr)
+{
+	if (!ft_memcmp(nbr, "-", 1))
+		return (1);
+	else if (!ft_memcmp(nbr, "0x", 2))
+		return (2);
+	return (0);
+}
+
 void	ft_disp(t_specifier *spec, char *nbr, int precision)
 {
 	int	sign;
 
-	sign = (*nbr == '-') ? 1 : 0;
+	sign = ft_shift(nbr); //(*nbr == '-') ? 1 : 0;
 	spec->bytes_count += ft_putlstr(nbr, sign);
 	ft_repeat_symb(precision, '0');
 	spec->bytes_count += ft_putnstr(nbr + sign, '\0');
 }
 
-void	width_prec_handler(t_specifier *spec, char *nbr, int nbr_size)
+void	width_prec_handler(t_specifier *spec, char *nbr, int nbr_size, int pflag)
 {
 	int	width;
 	int	precision;
 
 	width = 0;
 	precision = 0;
-	if (spec->precision >= nbr_size)
-		precision = spec->precision - (nbr_size - ((*nbr == '-') ? 1 : 0));
+	if (spec->precision >= nbr_size - pflag)
+		precision = spec->precision - (nbr_size - ft_shift(nbr));//((*nbr == '-') ? 1 : 0));
 	if (spec->width > nbr_size + precision)
 		width = spec->width - (nbr_size + precision);
-	if (!spec->precision && *nbr == '0')
+	if (!spec->precision && *nbr == '0' && !pflag)
 	{
 		spec->bytes_count += spec->width;
 		ft_repeat_symb(spec->width, ' ');
@@ -67,14 +76,14 @@ void	zero_handler(t_specifier *spec, char *nbr, int nbr_size)
 	}
 }
 
-void	choose_direction(t_specifier *spec, char *nbr, int nbr_size)
+void	choose_direction(t_specifier *spec, char *nbr, int nbr_size, int pflag)
 {
 	if (spec->width < 0 && spec->precision < 0)
 		spec->bytes_count += ft_putnstr(nbr, '\0');
 	else if (spec->flags & FLG_ZERO)
 		zero_handler(spec, nbr, nbr_size);
 	else
-		width_prec_handler(spec, nbr, nbr_size);
+		width_prec_handler(spec, nbr, nbr_size, pflag);
 }
 
 void	ft_display_d(t_specifier *spec)
@@ -93,6 +102,6 @@ void	ft_display_d(t_specifier *spec)
 	nbr_size = ft_strlen(nbr);
 	if (spec->precision > -1 || (spec->flags & FLG_MINUS))
 		spec->flags &= 0b11110111;
-	choose_direction(spec, nbr, nbr_size);
+	choose_direction(spec, nbr, nbr_size, 0);
 	free(nbr);
 }

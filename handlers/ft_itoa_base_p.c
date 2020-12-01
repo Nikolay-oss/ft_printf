@@ -17,7 +17,7 @@ static size_t	init_size(unsigned long long int n, int base)
 {
 	size_t	size;
 
-	size = 2;
+	size = 3;
 	while (n / base)
 	{
 		n /= base;
@@ -39,8 +39,8 @@ char			*ft_itoa_base_p(unsigned long long int n, int base)
 		return (str);
 	*(str + 0) = '0';
 	*(str + 1) = 'x';
-	base_arr = "0123456789ABCDEF";
-	while (size > 1)
+	base_arr = "0123456789abcdef";
+	while (size > 2)
 	{
 		*(str + --size) = *(base_arr + (num % base));
 		num /= base;

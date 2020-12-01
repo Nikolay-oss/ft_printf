@@ -41,10 +41,10 @@ void					ft_select_flag(char c, t_specifier *spec);
 char					*ft_itoa_base_x(unsigned int n, int base);
 char					*ft_itoa_base_p(unsigned long long int n, int base);
 void					choose_direction(t_specifier *spec, char *nbr,
-							int nbr_size);
+							int nbr_size, int pflag);
 void					zero_handler(t_specifier *spec, char *nbr,
 							int nbr_size);
 void					width_prec_handler(t_specifier *spec, char *nbr,
-							int nbr_size);
+							int nbr_size, int pflag);
 void					ft_disp(t_specifier *spec, char *nbr, int precision);
 #endif

@@ -44,6 +44,6 @@ void			ft_display_x(t_specifier *spec, t_bool flag)
 		spec->flags &= 0b11110111;
 	if (flag)
 		ft_tolower_case(&nbr);
-	choose_direction(spec, nbr, nbr_size);
+	choose_direction(spec, nbr, nbr_size, 0);
 	free(nbr);
 }

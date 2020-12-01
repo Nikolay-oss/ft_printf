@@ -29,6 +29,6 @@ void	ft_display_p(t_specifier *spec)
 	nbr_size = ft_strlen(nbr);
 	if (spec->precision > -1 || (spec->flags & FLG_MINUS))
 		spec->flags &= 0b11110111;
-	choose_direction(spec, nbr, nbr_size);
+	choose_direction(spec, nbr, nbr_size, 1);
 	free(nbr);
 }
