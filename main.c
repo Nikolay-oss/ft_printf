@@ -90,9 +90,9 @@ int		main()
 	*	%p
 	*/
 
-	/*printf("|%d|\n", ft_printf("%p!\n", "42"));
+	printf("|%d|\n", ft_printf("%p!\n", "42"));
 	printf("|%d|\n", printf("%p!\n", "42"));
-	printf("|%d|\n", ft_printf("%3p!\n", 42));
+	/*printf("|%d|\n", ft_printf("%3p!\n", 42));
 	printf("|%d|\n", printf("%3p!\n", 42));
 	printf("|%d|\n", ft_printf("%5p!\n", 42));
 	printf("|%d|\n", printf("%5p!\n", 42));
@@ -108,8 +108,11 @@ int		main()
 	printf("|%d|\n", printf("%.p!\n", 0));*/
 	/*printf("|%d|\n", ft_printf("%02p!\n", 0));
 	printf("|%d|\n", printf("%02p!\n", 0));*/
-	printf("|%d|\n", ft_printf("%p!\n", NULL));
+	/*printf("|%d|\n", ft_printf("%p!\n", NULL));
 	printf("|%d|\n", printf("%p!\n", NULL));
+	printf("|%d|\n", ft_printf("%p!\n", 0));
+	printf("|%d|\n", printf("%p!\n", 0));*/
+
 
 	/*
 	*	%i

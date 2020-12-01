@@ -45,6 +45,7 @@ RESET		= \033[0m
 			@$(CC) $(CFLAGS) -I $(INCLUDES) -c $< -o $@
 
 $(NAME):	$(OBJS)
+			@echo "$(GREEN)|.........Compilation.........|$(RESET)"
 			@make -C $(LIBFTDIR)
 			@cp $(LIBFTDIR)$(LIBFT) $(NAME)
 			@ar rcs $(NAME) $(OBJS)

@@ -11,7 +11,6 @@
 /* ************************************************************************** */
 
 #include "ft_parser.h"
-#include <stdio.h>
 
 int		ft_parser(const char *format, t_specifier *spec)
 {
