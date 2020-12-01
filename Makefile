@@ -40,6 +40,7 @@ RED			= \033[0;31m
 
 RESET		= \033[0m
 #gcc -I includes main.c -L. -lftprintf компиляция с либой
+# add CFLAGS!
 %.o:	%.c
 			@$(CC) -I $(INCLUDES) -c $< -o $@
 

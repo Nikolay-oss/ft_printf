@@ -33,7 +33,7 @@ void			ft_display_x(t_specifier *spec, t_bool flag)
 	int				nbr_size;
 
 	nbr_size = 0;
-	num = va_arg(spec->ap, int);
+	num = va_arg(spec->ap, unsigned int);
 	if (!(nbr = ft_itoa_base_x(num, 16)))
 	{
 		spec->bytes_count = -1;
