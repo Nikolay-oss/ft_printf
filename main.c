@@ -167,6 +167,10 @@ int		main()
 	//printf("|%d|\n", printf("avc%13s24343%-5.2s\n", "ABC", "abc"));
 
 
+	printf("|%d|\n", ft_printf("\%123%5d\n", 42));
+	printf("|%d|\n", printf("\%123%5d\n", 42));
+
+
 	// printf("|%d|\n", printf("%.1da\n", 0));
 	// printf("|%d|\n", ft_printf("%.1da\n", 0));
 	//printf("%u\n", -42);
