@@ -6,7 +6,7 @@
 #    By: dkenchur <dkenchur@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/11/18 19:56:41 by dkenchur          #+#    #+#              #
-#    Updated: 2020/12/03 02:49:04 by dkenchur         ###   ########.fr        #
+#    Updated: 2020/12/03 04:55:36 by dkenchur         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -40,7 +40,7 @@ GREEN		= \033[0;32m
 RED			= \033[0;31m
 
 RESET		= \033[0m
-#gcc -I includes main.c -L. -lftprintf компиляция с либой
+
 %.o:	%.c
 			@$(CC) $(CFLAGS) -I $(INCLUDES) -c $< -o $@
 
