@@ -6,12 +6,11 @@
 /*   By: dkenchur <dkenchur@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/25 04:42:51 by dkenchur          #+#    #+#             */
-/*   Updated: 2020/11/30 20:25:10 by dkenchur         ###   ########.fr       */
+/*   Updated: 2020/12/03 03:17:44 by dkenchur         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_parser.h"
-#include <stdio.h>
 
 void	ft_get_star_value(char c, int *i, t_specifier *spec)
 {
@@ -22,6 +21,12 @@ void	ft_get_star_value(char c, int *i, t_specifier *spec)
 	if (*i == 1 && !(spec->flags & FLG_POINT))
 		return ;
 	num = va_arg(spec->ap, int);
+	if (num < 0 && (spec->flags & FLG_POINT))
+	{
+		spec->flags &= 0b111111101;
+		spec->precision = -1;
+		return ;
+	}
 	if (num < 0)
 	{
 		spec->flags |= FLG_MINUS;

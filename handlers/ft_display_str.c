@@ -6,13 +6,11 @@
 /*   By: dkenchur <dkenchur@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/16 22:35:22 by dkenchur          #+#    #+#             */
-/*   Updated: 2020/11/30 20:22:00 by dkenchur         ###   ########.fr       */
+/*   Updated: 2020/12/03 03:11:54 by dkenchur         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_handlers.h"
-#include "libft.h"
-#include <stdio.h>
 
 static	void	ft_width_s(char *str, t_specifier *spec, int size)
 {

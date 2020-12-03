@@ -6,12 +6,11 @@
 /*   By: dkenchur <dkenchur@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/30 23:48:18 by dkenchur          #+#    #+#             */
-/*   Updated: 2020/11/30 23:53:53 by dkenchur         ###   ########.fr       */
+/*   Updated: 2020/12/03 03:11:58 by dkenchur         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_handlers.h"
-#include "libft.h"
 
 void	ft_display_u(t_specifier *spec)
 {

@@ -1,33 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_display_d.c                                     :+:      :+:    :+:   */
+/*   ft_display_utils.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dkenchur <dkenchur@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/11/25 05:56:17 by dkenchur          #+#    #+#             */
-/*   Updated: 2020/12/03 03:11:41 by dkenchur         ###   ########.fr       */
+/*   Created: 2020/12/03 02:16:07 by dkenchur          #+#    #+#             */
+/*   Updated: 2020/12/03 03:12:01 by dkenchur         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_handlers.h"
 
-void	ft_display_d(t_specifier *spec)
+void	minus_handler(t_specifier *spec, char *nbr, int width, int precision)
 {
-	int		num;
-	char	*nbr;
-	int		nbr_size;
-
-	num = va_arg(spec->ap, int);
-	nbr_size = 0;
-	if (!(nbr = ft_itoa(num)))
+	if (spec->flags & FLG_MINUS)
 	{
-		spec->bytes_count = -1;
-		return ;
+		ft_disp(spec, nbr, precision);
+		ft_repeat_symb(width, ' ');
 	}
-	nbr_size = ft_strlen(nbr);
-	if (spec->precision > -1 || (spec->flags & FLG_MINUS))
-		spec->flags &= 0b11110111;
-	choose_direction(spec, nbr, nbr_size, 0);
-	free(nbr);
+	else
+	{
+		ft_repeat_symb(width, ' ');
+		ft_disp(spec, nbr, precision);
+	}
+}
+
+void	ft_display_special(t_specifier *spec, char *str)
+{
+	while (*str != '%')
+		str--;
+	spec->bytes_count += ft_putnstr(str, '\0');
 }

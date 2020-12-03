@@ -6,13 +6,11 @@
 /*   By: dkenchur <dkenchur@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/16 16:21:48 by dkenchur          #+#    #+#             */
-/*   Updated: 2020/11/30 23:50:23 by dkenchur         ###   ########.fr       */
+/*   Updated: 2020/12/03 03:12:20 by dkenchur         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_handlers.h"
-#include "libft.h"
-#include <stdio.h>
 
 void	ft_select_flag(char c, t_specifier *spec)
 {

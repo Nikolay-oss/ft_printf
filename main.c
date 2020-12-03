@@ -90,52 +90,72 @@ int		main()
 	*	%p
 	*/
 
-	printf("|%d|\n", ft_printf("%p!\n", "42"));
-	printf("|%d|\n", printf("%p!\n", "42"));
-	/*printf("|%d|\n", ft_printf("%3p!\n", 42));
-	printf("|%d|\n", printf("%3p!\n", 42));
-	printf("|%d|\n", ft_printf("%5p!\n", 42));
-	printf("|%d|\n", printf("%5p!\n", 42));
-	printf("|%d|\n", ft_printf("%5.3p!\n", 42));
-	printf("|%d|\n", printf("%5.3p!\n", 42));
-	printf("|%d|\n", ft_printf("%.p!\n", 42));
-	printf("|%d|\n", printf("%.p!\n", 42));
-	printf("|%d|\n", ft_printf("%05.p!\n", -42));
-	printf("|%d|\n", printf("%05.p!\n", -42));
-	printf("|%d|\n", ft_printf("%-5.20p!\n", -42));
-	printf("|%d|\n", printf("%-5.20p!\n", -42));
-	printf("|%d|\n", ft_printf("%.p!\n", 0));
-	printf("|%d|\n", printf("%.p!\n", 0));*/
-	/*printf("|%d|\n", ft_printf("%02p!\n", 0));
-	printf("|%d|\n", printf("%02p!\n", 0));*/
-	/*printf("|%d|\n", ft_printf("%p!\n", NULL));
-	printf("|%d|\n", printf("%p!\n", NULL));
-	printf("|%d|\n", ft_printf("%p!\n", 0));
-	printf("|%d|\n", printf("%p!\n", 0));*/
+	// printf("|%d|\n", ft_printf("%p!\n", "42"));
+	// printf("|%d|\n", printf("%p!\n", "42"));
+	// printf("|%d|\n", ft_printf("%3p!\n", 42));
+	// printf("|%d|\n", printf("%3p!\n", 42));
+	// printf("|%d|\n", ft_printf("%5p!\n", 42));
+	// printf("|%d|\n", printf("%5p!\n", 42));
+	// printf("|%d|\n", ft_printf("%5.3p!\n", 42));
+	// printf("|%d|\n", printf("%5.3p!\n", 42));
+	// printf("|%d|\n", ft_printf("%.p!\n", 42));
+	// printf("|%d|\n", printf("%.p!\n", 42));
+	// printf("|%d|\n", ft_printf("%05.p!\n", -42));
+	// printf("|%d|\n", printf("%05.p!\n", -42));
+	// printf("|%d|\n", ft_printf("%-5.20p!\n", -42));
+	// printf("|%d|\n", printf("%-5.20p!\n", -42));
+	// printf("|%d|\n", ft_printf("%.p!\n", 42));
+	// printf("|%d|\n", printf("%.p!\n", 42));
+
+	// printf("|%d|\n", ft_printf("%*.p!\n", 0, 0));
+	// printf("|%d|\n", printf("%*.p!\n", 0, 0));
+	// printf("|%d|\n", ft_printf("%*.p!\n", 0, 0));
+	// printf("|%d|\n", printf("%*.p!\n", 0, 0));
+	// printf("|%d|\n", ft_printf("%*.p!\n", 0, 0));
+	// printf("|%d|\n", printf("%*.p!\n", 0, 0));
+	// printf("|%d|\n", ft_printf("%16.p!\n", 0));
+	// printf("|%d|\n", printf("%16.p!\n", 0));
+	// printf("|%d|\n", ft_printf("%--16.p!\n", 0, 0));
+	// printf("|%d|\n", printf("%--16.p!\n", 0, 0));
+	// printf("|%d|\n", ft_printf("%3.p!\n", 0));
+	// printf("|%d|\n", printf("%3.p!\n", 0));
+	// printf("|%d|\n", ft_printf("%5p!\n", 0));
+	// printf("|%d|\n", printf("%5p!\n", 0));
+
+	printf("|%d|\n", ft_printf("%5%!\n"));
+	printf("|%d|\n", printf("%5%!\n"));
+
+
+	// size_t a = 5;
+	// int b = 3;
+	// int c = a - b;
+	// printf("%d\n", c);
 
 
 	/*
 	*	%i
 	*/
 
-	/*printf("|%d|\n", ft_printf("%i!\n", 42));
-	printf("|%d|\n", printf("%i!\n", 42));
-	printf("|%d|\n", ft_printf("%3i!\n", 42));
-	printf("|%d|\n", printf("%3i!\n", 42));
-	printf("|%d|\n", ft_printf("%5i!\n", 42));
-	printf("|%d|\n", printf("%5i!\n", 42));
-	printf("|%d|\n", ft_printf("%5.3i!\n", 42));
-	printf("|%d|\n", printf("%5.3i!\n", 42));
-	printf("|%d|\n", ft_printf("%.i!\n", 42));
-	printf("|%d|\n", printf("%.i!\n", 42));
-	printf("|%d|\n", ft_printf("%05.i!\n", -42));
-	printf("|%d|\n", printf("%05.i!\n", -42));
-	printf("|%d|\n", ft_printf("%-5.20i!\n", -42));
-	printf("|%d|\n", printf("%-5.20i!\n", -42));
-	printf("|%d|\n", ft_printf("%5.i!\n", 0));
-	printf("|%d|\n", printf("%5.i!\n", 0));
-	printf("|%d|\n", ft_printf("%02i!\n", 0));
-	printf("|%d|\n", printf("%02i!\n", 0));*/
+	// printf("|%d|\n", ft_printf("%i!\n", 42));
+	// printf("|%d|\n", printf("%i!\n", 42));
+	// printf("|%d|\n", ft_printf("%3i!\n", 42));
+	// printf("|%d|\n", printf("%3i!\n", 42));
+	//printf("|%d|\n", ft_printf("%5i!\n", 42));
+	// printf("|%d|\n", printf("%5i!\n", 42));
+	// printf("|%d|\n", ft_printf("%5.3i!\n", 42));
+	// printf("|%d|\n", printf("%5.3i!\n", 42));
+	// printf("|%d|\n", ft_printf("%.i!\n", 42));
+	// printf("|%d|\n", printf("%.i!\n", 42));
+	// printf("|%d|\n", ft_printf("%05.i!\n", -42));
+	// printf("|%d|\n", printf("%05.i!\n", -42));
+	// printf("|%d|\n", ft_printf("%-5.20i!\n", -42));
+	// printf("|%d|\n", printf("%-5.20i!\n", -42));
+	// printf("|%d|\n", ft_printf("%5.i!\n", 0));
+	// printf("|%d|\n", printf("%5.i!\n", 0));
+	// printf("|%d|\n", ft_printf("%02i!\n", 0));
+	// printf("|%d|\n", printf("%02i!\n", 0));
+	// printf("|%d|\n", ft_printf("%03i!\n", 634));
+	// printf("|%d|\n", printf("%03i!\n", 634));
 
 	/*
 	*	%u
@@ -160,16 +180,26 @@ int		main()
 	printf("|%d|\n", ft_printf("%02u!\n", 0));
 	printf("|%d|\n", printf("%02u!\n", 0));*/
 
-	//printf("|%d|\n", ft_printf("ft_printf -> %s%15.4sol%5d\texample: %d - %d = %.2d and hex: 42 = %x = %X\n", "hello", "school", 42, 42, 41, 1, -42, -42));
-	//printf("|%d|\n", printf("ft_printf -> %s%15.4sol%5d\texample: %d - %d = %.2d and hex: 42 = %x = %X\n", "hello", "school", 42, 42, 41, 1, -42, -42));
+	// printf("|%d|\n", ft_printf("ft_printf -> %s%15.4sol%5d\texample: %d - %d = %.2d and hex: 42 = %x = %X\n", "hello", "school", 42, 42, 41, 1, -42, -42));
+	// printf("|%d|\n", printf("ft_printf -> %s%15.4sol%5d\texample: %d - %d = %.2d and hex: 42 = %x = %X\n", "hello", "school", 42, 42, 41, 1, -42, -42));
 	
 	//printf("|%d|\n", ft_printf("avc%13s24343%-5.2s\n", "ABC", "abc"));
 	//printf("|%d|\n", printf("avc%13s24343%-5.2s\n", "ABC", "abc"));
 
 
-	printf("|%d|\n", ft_printf("\%123%5d\n", 42));
-	printf("|%d|\n", printf("\%123%5d\n", 42));
+	// printf("|%d|\n", ft_printf("\%123%5d\n", 42));
+	// printf("|%d|\n", printf("\%123%5d\n", 42));
 
+	// printf("|%d|\n", ft_printf("%03d\n", 634));
+	// printf("|%d|\n", printf("%03d\n", 634));
+	// printf("|%d|\n", ft_printf("%.*X", -1, 12345));
+	// printf("|%d|\n", printf("%.*X", -1, 12345));
+
+	// printf("|%d|\n", ft_printf("%.*s\n", -1, 0));
+	// printf("|%d|\n", printf("%.*s\n", -1, 0));
+	// printf("|%d|\n", ft_printf("%.*s\n", -3, 0));
+	// printf("|%d|\n", printf("%.*s\n", -3, 0));
+	
 
 	// printf("|%d|\n", printf("%.1da\n", 0));
 	// printf("|%d|\n", ft_printf("%.1da\n", 0));

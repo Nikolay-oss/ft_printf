@@ -6,7 +6,7 @@
 #    By: dkenchur <dkenchur@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/11/18 19:56:41 by dkenchur          #+#    #+#              #
-#    Updated: 2020/12/01 00:19:41 by dkenchur         ###   ########.fr        #
+#    Updated: 2020/12/03 02:49:04 by dkenchur         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -30,7 +30,8 @@ SRCS		= ft_printf.c						$(PARSERDIR)ft_parser.c			$(PARSERDIR)follow_line.c \
 			  $(HANDLERSDIR)ft_display_str.c	$(HANDLERSDIR)ft_modes.c		$(PARSERDIR)ft_init_specifier.c \
 			  $(PARSERDIR)ft_get_star_value.c	$(HANDLERSDIR)ft_display_d.c	$(HANDLERSDIR)ft_display_chr.c \
 			  $(HANDLERSDIR)ft_display_x.c		$(HANDLERSDIR)ft_itoa_base_p.c	$(HANDLERSDIR)ft_itoa_base_x.c \
-			  $(HANDLERSDIR)ft_display_p.c		$(HANDLERSDIR)ft_display_u.c	$(HANDLERSDIR)ft_display_special.c
+			  $(HANDLERSDIR)ft_display_p.c		$(HANDLERSDIR)ft_display_u.c	$(HANDLERSDIR)ft_display_num.c \
+			  $(HANDLERSDIR)ft_display_utils.c
 
 OBJS		= $(SRCS:.c=.o)
 
@@ -40,7 +41,6 @@ RED			= \033[0;31m
 
 RESET		= \033[0m
 #gcc -I includes main.c -L. -lftprintf компиляция с либой
-# add CFLAGS!
 %.o:	%.c
 			@$(CC) $(CFLAGS) -I $(INCLUDES) -c $< -o $@
 

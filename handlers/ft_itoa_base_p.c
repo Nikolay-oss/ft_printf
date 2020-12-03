@@ -6,12 +6,11 @@
 /*   By: dkenchur <dkenchur@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/30 20:09:33 by dkenchur          #+#    #+#             */
-/*   Updated: 2020/11/30 23:57:49 by dkenchur         ###   ########.fr       */
+/*   Updated: 2020/12/03 03:12:09 by dkenchur         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_handlers.h"
-#include "libft.h"
 
 static size_t	init_size(unsigned long long int n, int base)
 {

@@ -6,13 +6,11 @@
 /*   By: dkenchur <dkenchur@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/30 17:37:33 by dkenchur          #+#    #+#             */
-/*   Updated: 2020/11/30 23:09:27 by dkenchur         ###   ########.fr       */
+/*   Updated: 2020/12/03 03:20:18 by dkenchur         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_handlers.h"
-#include "libft.h"
-#include <stdio.h>
 
 static	void	ft_tolower_case(char **nbr)
 {
@@ -26,7 +24,7 @@ static	void	ft_tolower_case(char **nbr)
 	}
 }
 
-void			ft_display_x(t_specifier *spec, t_bool flag)
+void			ft_display_x(t_specifier *spec, int flag)
 {
 	unsigned int	num;
 	char			*nbr;
