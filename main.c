@@ -21,9 +21,6 @@ int		main()
 	// //printf("%*s\n", 5, "wfd");
 	// printf("|%d|\n", ft_printf("ABC%-2cHello%s%3.2s\n", 'c', " world", "!!!"));//ft_printf("%*.*s\n", 5, 2, "Hello"));
 	// printf("|%d|\n", printf("ABC%-2cHello%s%3.2s\n", 'c', " world", "!!!"));//printf("%*.*s\n", 5, 2, "Hello"));
-	// char *s = ft_itoa_base(4294967254, 16);
-	// printf("%s\n", s);
-	// free(s);
 	// printf("|%d|\n", ft_printf("%5.3d Hello%s\n", -42, " world!"));
 	// printf("|%d|\n", printf("%5.3d Hello%s\n", -42, " world!"));
 	// printf("|%d|\n", ft_printf("%5.3d Hello%s\n", 42, " world!"));
@@ -122,8 +119,28 @@ int		main()
 	// printf("|%d|\n", ft_printf("%5p!\n", 0));
 	// printf("|%d|\n", printf("%5p!\n", 0));
 
-	printf("|%d|\n", ft_printf("%5%!\n"));
-	printf("|%d|\n", printf("%5%!\n"));
+	// printf("|%d|\n", ft_printf("%5%!\n"));
+	// printf("|%d|\n", printf("%5%!\n"));
+	// printf("|%d|\n", ft_printf("%5.%!\n"));
+	// printf("|%d|\n", printf("%5.%!\n"));
+	// printf("|%d|\n", ft_printf("%-5%!\n"));
+	// printf("|%d|\n", printf("%-5%!\n"));
+	// printf("|%d|\n", ft_printf("%-5.%!\n"));
+	// printf("|%d|\n", printf("%-5.%!\n"));
+	// printf("|%d|\n", ft_printf("%-05%!\n"));
+	// printf("|%d|\n", printf("%-05%!\n"));
+	// printf("|%d|\n", ft_printf("%-05.%!\n"));
+	// printf("|%d|\n", printf("%-05.%!\n"));
+	// printf("|%d|\n", ft_printf("%05.%!\n"));
+	// printf("|%d|\n", printf("%05.%!\n"));
+
+	// printf("|%d|\n", ft_printf("%% *.5i 42 == |% *.5i|\n", 4, 42));
+	// printf("|%d|\n", printf("%% *.5i 42 == |% *.5i|\n", 4, 42));
+	// printf("|%d|\n", ft_printf("% *.5i!\n", 4, 42));
+	// printf("|%d|\n", printf("% *.5i!\n", 4, 42));
+	printf("|%d|\n", ft_printf("%4.5i!\n", 42));
+	printf("|%d|\n", printf("%4.5i!\n", 42));
+	
 
 
 	// size_t a = 5;
@@ -183,8 +200,8 @@ int		main()
 	// printf("|%d|\n", ft_printf("ft_printf -> %s%15.4sol%5d\texample: %d - %d = %.2d and hex: 42 = %x = %X\n", "hello", "school", 42, 42, 41, 1, -42, -42));
 	// printf("|%d|\n", printf("ft_printf -> %s%15.4sol%5d\texample: %d - %d = %.2d and hex: 42 = %x = %X\n", "hello", "school", 42, 42, 41, 1, -42, -42));
 	
-	//printf("|%d|\n", ft_printf("avc%13s24343%-5.2s\n", "ABC", "abc"));
-	//printf("|%d|\n", printf("avc%13s24343%-5.2s\n", "ABC", "abc"));
+	// printf("|%d|\n", ft_printf("avc%13s24343%-5.2s\n", "ABC", "abc"));
+	// printf("|%d|\n", printf("avc%13s24343%-5.2s\n", "ABC", "abc"));
 
 
 	// printf("|%d|\n", ft_printf("\%123%5d\n", 42));

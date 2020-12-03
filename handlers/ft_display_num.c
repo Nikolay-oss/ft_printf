@@ -6,13 +6,13 @@
 /*   By: dkenchur <dkenchur@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/03 01:56:24 by dkenchur          #+#    #+#             */
-/*   Updated: 2020/12/03 03:11:47 by dkenchur         ###   ########.fr       */
+/*   Updated: 2020/12/03 04:14:01 by dkenchur         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_handlers.h"
 
-int		ft_shift(char *nbr)
+static	int		ft_shift(char *nbr)
 {
 	if (*nbr == '-')
 		return (1);
@@ -21,7 +21,7 @@ int		ft_shift(char *nbr)
 	return (0);
 }
 
-void	ft_disp(t_specifier *spec, char *nbr, int precision)
+void			ft_disp(t_specifier *spec, char *nbr, int precision)
 {
 	int	sign;
 
@@ -33,7 +33,7 @@ void	ft_disp(t_specifier *spec, char *nbr, int precision)
 	spec->bytes_count += ft_putnstr(nbr + sign, '\0');
 }
 
-void	width_prec_handler(t_specifier *spec, char *nbr, int nbr_size,
+static	void	width_prec_handler(t_specifier *spec, char *nbr, int nbr_size,
 	int pflag)
 {
 	int	width;
@@ -55,7 +55,7 @@ void	width_prec_handler(t_specifier *spec, char *nbr, int nbr_size,
 	minus_handler(spec, nbr, width, precision);
 }
 
-void	zero_handler(t_specifier *spec, char *nbr, int nbr_size)
+static	void	zero_handler(t_specifier *spec, char *nbr, int nbr_size)
 {
 	int	size;
 
@@ -66,7 +66,8 @@ void	zero_handler(t_specifier *spec, char *nbr, int nbr_size)
 	spec->bytes_count += size;
 }
 
-void	choose_direction(t_specifier *spec, char *nbr, int nbr_size, int pflag)
+void			choose_direction(t_specifier *spec, char *nbr, int nbr_size,
+	int pflag)
 {
 	if (spec->width < 0 && spec->precision < 0)
 		spec->bytes_count += ft_putnstr(nbr, '\0');

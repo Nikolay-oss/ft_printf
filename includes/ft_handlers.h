@@ -6,7 +6,7 @@
 /*   By: dkenchur <dkenchur@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/16 13:17:14 by dkenchur          #+#    #+#             */
-/*   Updated: 2020/12/03 03:20:35 by dkenchur         ###   ########.fr       */
+/*   Updated: 2020/12/03 03:46:32 by dkenchur         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ typedef	struct			s_specifier
 
 void					ft_modes(t_specifier *spec, char c);
 void					ft_display_str(t_specifier *spec);
-void					ft_display_chr(t_specifier *spec);
+void					ft_display_chr(t_specifier *spec, int perflag);
 void					ft_display_d(t_specifier *spec);
 void					ft_display_x(t_specifier *spec, int flag);
 void					ft_display_p(t_specifier *spec);
