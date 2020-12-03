@@ -6,7 +6,7 @@
 /*   By: dkenchur <dkenchur@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/01 17:55:37 by dkenchur          #+#    #+#             */
-/*   Updated: 2020/11/30 19:06:20 by dkenchur         ###   ########.fr       */
+/*   Updated: 2020/12/03 05:11:11 by dkenchur         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,6 @@ void	*ft_calloc(size_t count, size_t size)
 	obj = malloc(count * size);
 	if (!obj)
 		return (obj);
-	ft_bzero(obj, count * size);
+	ft_bzero(&obj, count * size);
 	return (obj);
 }

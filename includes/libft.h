@@ -6,7 +6,7 @@
 /*   By: dkenchur <dkenchur@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/29 13:01:35 by dkenchur          #+#    #+#             */
-/*   Updated: 2020/11/25 07:08:33 by dkenchur         ###   ########.fr       */
+/*   Updated: 2020/12/03 05:11:21 by dkenchur         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ char				*ft_strjoin(char const *s1, char const *s2);
 size_t				ft_strlen(const char *s);
 char				**ft_split(char const *s, char c);
 void				*ft_memset(void *b, int c, size_t len);
-void				ft_bzero(void *s, size_t n);
+void				ft_bzero(void **s, size_t n);
 void				*ft_memcpy(void *dst, const void *src, size_t n);
 void				*ft_memccpy(void *dst, const void *src, int c,
 						size_t n);
